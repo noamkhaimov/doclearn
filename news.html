@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новостной Блок</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: white;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+        .news-container, .news-media, .other-news {
+            max-width: 800px;
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            margin-bottom: 20px;
+        }
+        .news-header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .news-meta {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: gray;
+        }
+        .news-meta img {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        .news-header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .news-content {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #ccc;
+        }
+        .news-images {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .news-images img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .news-images .more {
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .news-source {
+            font-size: 14px;
+            color: lightgray;
+            margin-top: 10px;
+        }
+        .news-media h3, .other-news h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .media-item, .other-news-item {
+            background: #222;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .media-item:hover, .other-news-item:hover {
+            background: #333;
+        }
+        .show-more {
+            background: #333;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            width: 100%;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+        .show-more:hover {
+            background: #555;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Основной новостной блок -->
+<div class="news-container">
+    <div class="news-header-container">
+        <div class="news-meta">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Vzglyad-logo.svg/1200px-Vzglyad-logo.svg.png" alt="Логотип">
+            <span>Взгляд.ру • 1 час назад</span>
+        </div>
+    </div>
+
+    <div class="news-header">CNN: Актер Джин Хэкмен после смерти жены голодал</div>
+
+    <div class="news-content">
+        Актер Джин Хэкмен, страдавший болезнью Альцгеймера и сердечным заболеванием,
+        скончался в своем особняке в Нью-Мексико спустя неделю после смерти жены...
+    </div>
+
+    <div class="news-images">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Gene_Hackman_2008.jpg" alt="Джин Хэкмен">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Gene_Hackman_1972.jpg" alt="Молодой Джин Хэкмен">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Gene_Hackman_in_Bonnie_and_Clyde_1967.jpg" alt="Кадр из фильма">
+        <div class="more">+15</div>
+    </div>
+
+    <div class="news-source">Источник: Взгляд.ру</div>
+</div>
+
+<!-- Блок с новостями в СМИ -->
+<div class="news-media">
+    <h3>Эта новость в СМИ</h3>
+    <div class="media-item">
+        <span>📢 РИА Новости • 8 марта в 02:46</span>
+        <span class="read-more">+ Читать в Дзене</span>
+    </div>
+    <div class="media-item">
+        <span>📰 ТАСС • 8 марта в 01:54</span>
+        <span class="read-more">+ Читать в Дзене</span>
+    </div>
+    <div class="media-item">
+        <span>📺 Известия • 8 марта в 04:00</span>
+        <span class="read-more">+ Читать в Дзене</span>
+    </div>
+    <button class="show-more">Показать ещё</button>
+</div>
+
+<!-- Блок с другими новостями -->
+<div class="other-news">
+    <h3>Другие новости</h3>
+    <div class="other-news-item">🔹 Стивен Спилберг снимает новый фильм о космосе</div>
+    <div class="other-news-item">🔹 Илон Маск заявил о запуске новой версии Starship</div>
+
+    <!-- Скрытые новости -->
+    <div id="extra-news" class="hidden">
+        <div class="other-news-item">🔹 Джефф Безос инвестирует миллиарды в искусственный интеллект</div>
+        <div class="other-news-item">🔹 В России откроют первый завод по производству электромобилей</div>
+    </div>
+
+    <!-- Кнопка "Показать ещё / Скрыть новости" -->
+    <button class="show-more" id="toggle-news-btn">Показать ещё</button>
+</div>
+
+<!-- JavaScript -->
+<script>
+    document.getElementById('toggle-news-btn').addEventListener('click', function () {
+        let extraNews = document.getElementById('extra-news');
+        if (extraNews.classList.contains('hidden')) {
+            extraNews.classList.remove('hidden');  // Показываем новости
+            this.textContent = "Скрыть новости";  // Меняем текст кнопки
+        } else {
+            extraNews.classList.add('hidden');  // Скрываем новости
+            this.textContent = "Показать ещё";  // Меняем текст кнопки обратно
+        }
+    });
+</script>
+
+</body>
+</html>
